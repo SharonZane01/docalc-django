@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block title %}Dashboard{% endblock %}
+
+{% block content %}
+    <div class="text-center">
+        <h1 class="text-3xl font-bold text-green-600 mb-4">Success! 🎉</h1>
+        
+        {% if user.is_authenticated %}
+            <p class="text-gray-700 text-lg mb-6">
+                You are logged in as: <strong class="font-semibold">{{ user.email }}</strong>
+            </p>
+            <p class="text-gray-600 mb-8">
+                This confirms that your user registration and OTP email system with Brevo is working perfectly.
+            </p>
+            <a href="{% url 'logout' %}" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-6 rounded focus:outline-none focus:shadow-outline">
+                Log Out
+            </a>
+        {% else %}
+            <p class="text-red-500">You are not logged in.</p>
+        {% endif %}
+    </div>
+{% endblock %}
